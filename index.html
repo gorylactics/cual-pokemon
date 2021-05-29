@@ -27,18 +27,20 @@
                     let pesoPokemon = resultado.weight;
                     let pokemonAltura = resultado.height;
                     
-                    $('#contenido').append(`<h2>El nombre del pokemon es: ${nombrePokemon}</h2>`);
-                    $('#contenido').append(`<h2>Su peso es: ${pesoPokemon}</h2>`);
-                    $('#contenido').append(`<h2>Su altura es: ${pokemonAltura}</h2>`);
-                    $('#contenido').append(`<h2>El tipo de este pokemon es: </h2>`)
-                    
+                    $('#contenido').append(`<h2>El nombre del pokemon es: ${nombrePokemon}</h2>
+                    <h2>Su peso es: ${pesoPokemon}</h2>
+                    <h2>Su altura es: ${pokemonAltura}</h2>
+                    <h2>El tipo de este pokemon es: </h2>`);
+                    let html = `<ul>`;
                     for(let poderes of resultado.types){
                         let tipo = poderes.type.name;
-                        $('#contenido').append(`<ul><li>${tipo}<ul></li>`);
-                        }
-                    },'json');
-                });
+                        html+=`<li>${tipo}</li>`;
+                    }
+                    html+= `</ul>`;
+                    $('#contenido').append(html);
+                },'json');
             });
+        });
         </script>
     </body>
     </html>
